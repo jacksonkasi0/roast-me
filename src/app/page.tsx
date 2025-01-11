@@ -7,29 +7,29 @@ import URLInputSection from "@/components/URLInputSection";
 import RoastCard from "@/components/RoastCard";
 import SocialShareBar from "@/components/SocialShareBar";
 
-interface HomeProps {
-  onRoastGenerate?: (url: string) => void;
-  isLoading?: boolean;
-  error?: string;
-  roastData?: {
-    avatarUrl?: string;
-    username?: string;
-    roastText?: string;
-    timestamp?: string;
-  };
-}
+// ** import types
+import { RoastResponse } from "@/type";
 
-const Home = ({
-  onRoastGenerate = (url) => console.log("Generating roast for:", url),
-  isLoading = false,
-  error = "",
-  roastData = {
-    avatarUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=default",
-    username: "GithubRoaster",
-    roastText: "Your code is so clean, it makes Marie Kondo jealous! 🧹✨",
-    timestamp: new Date().toISOString(),
-  },
-}: HomeProps) => {
+const Home = () => {
+  const [roastData, setRoastData] = React.useState<RoastResponse | null>(null);
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  const handleRoastGenerate = (url: string) => {
+    try {
+      setIsLoading(true);
+      const response: RoastResponse = {
+        avatarUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=default",
+        username: "GithubRoaster",
+        roastText: "Your code is so clean, it makes Marie Kondo jealous! 🧹✨",
+      };
+      setRoastData(response);
+    } catch (error) {
+      console.error("Error generating roast:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center py-12 px-4">
       <header className="mb-12 text-center">
@@ -42,15 +42,11 @@ const Home = ({
       </header>
 
       <main className="w-full max-w-4xl space-y-8">
-        <URLInputSection
-          onSubmit={onRoastGenerate}
-          isLoading={isLoading}
-          error={error}
-        />
+        <URLInputSection onSubmit={handleRoastGenerate} isLoading={isLoading} />
 
         {roastData && (
           <div className="transition-all duration-300 ease-in-out">
-            <RoastCard />
+            <RoastCard {...roastData} />
           </div>
         )}
       </main>

@@ -7,13 +7,11 @@ import { Card } from "./ui/card";
 interface URLInputSectionProps {
   onSubmit?: (url: string) => void;
   isLoading?: boolean;
-  error?: string;
 }
 
 const URLInputSection = ({
   onSubmit = (url) => console.log("Submitted URL:", url),
   isLoading = false,
-  error = "",
 }: URLInputSectionProps) => {
   const [url, setUrl] = React.useState("");
 
@@ -49,8 +47,6 @@ const URLInputSection = ({
             {isLoading ? "Loading..." : "Roast Me!"}
           </Button>
         </div>
-
-        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
       </form>
     </Card>
   );
