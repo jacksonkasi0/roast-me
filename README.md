@@ -9,11 +9,12 @@
 - Simple, responsive UI built with Next.js and TailwindCSS  
 - Social sharing options for Twitter and LinkedIn 🔗  
 - GitHub avatar and profile integration 👤  
+- **Watch the build process on YouTube!** 🎥  
 
 ## 🛠️ Tech Stack  
 - **Frontend**: Next.js, TypeScript, TailwindCSS  
 - **Backend**: Next.js API Routes  
-- **AI Model**: LLM (e.g., GPT-4 mini or llama 3.2)  [sambanova.ai](https://sambanova.ai)
+- **AI Model**: LLM (e.g., GPT-4 mini or llama 3.2) [sambanova.ai](https://sambanova.ai)  
 - **API Integration**: GitHub API  
 
 ## 🚀 Getting Started  
@@ -48,6 +49,20 @@ Visit [http://localhost:3000](http://localhost:3000) to view your app.
 3. Share the roast on Twitter or LinkedIn.  
 4. Have fun! 😄  
 
+## 📺 Watch the Build  
+Check out the full development journey in my YouTube video, where I recorded the entire build from scratch:
+
+[📺 Watch the Full Build Video on YouTube](https://youtu.be/KBRR1OdD-ik)
+
+## 🌐 Live Demo  
+Experience the fun firsthand by trying out the **"Roast Me"** app:
+![Roast Me](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zyw18niyu7e4md69p8lc.png)
+
+- **Live Demo:** [roast-u.vercel.app](https://roast-u.vercel.app/)  
+  - Enter any GitHub profile URL.
+  - Click the **"Roast Me!"** button.
+  - Enjoy a personalized, funny roast based on the profile’s `README.md`.
+
 ## 🤝 Contributing  
 Contributions are welcome!  
 1. Fork the repository.  
@@ -62,5 +77,6 @@ This project is licensed under the MIT License.
 ## 📬 Contact  
 - **GitHub**: [Jackson Kasi](https://github.com/jacksonkasi0)  
 - **Live Demo**: [roast-u.vercel.app](https://roast-u.vercel.app)  
+- **Watch on YouTube**: [Watch the Full Build Video](https://youtu.be/KBRR1OdD-ik)  
 
 Made with ❤️ by Jackson Kasi  
