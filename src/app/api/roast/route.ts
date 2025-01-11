@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const username = githubLink.split("github.com/")[1];
-    const readmeUrl = `https://raw.githubusercontent.com/${username}/master/README.md`;
+    const readmeUrl = `https://raw.githubusercontent.com/${username}/${username}/master/README.md`;
     const response = await axios.get(readmeUrl);
     const roast = await generateRoast(response.data);
 
