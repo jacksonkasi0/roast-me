@@ -1,11 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
+
+// ** import third-party lib
 import axios from "axios";
+
+// ** import lib
+import { generateRoast } from "@/lib/generate-roast-content";
+
+// ** import type
 import { RoastResponse } from "@/type";
 
-const generateRoast = async (readmeContent: string): Promise<string> => {
-  // Placeholder function to simulate LLM analysis
-  return `🔥 ... just kidding, but keep it up! 😜`;
-};
 
 export async function POST(request: NextRequest) {
   const { githubLink } = await request.json();
@@ -20,12 +23,16 @@ export async function POST(request: NextRequest) {
   try {
     const username = githubLink.split("github.com/")[1];
     const readmeUrl = `https://raw.githubusercontent.com/${username}/${username}/master/README.md`;
-    const response = await axios.get(readmeUrl);
-    const roast = await generateRoast(response.data);
+    const readmeResponse = await axios.get(readmeUrl);
+    const roast = await generateRoast(readmeResponse.data);
+
+    const userProfileUrl = `https://api.github.com/users/${username}`;
+    const userProfileResponse = await axios.get(userProfileUrl);
+    const avatarUrl = userProfileResponse.data.avatar_url;
 
     const response_data: RoastResponse = {
       username,
-      avatarUrl: `https://api.dicebear.com/7.x/avataaars/svg?seed=default`,
+      avatarUrl,
       roastText: roast,
     };
 
