@@ -18,7 +18,7 @@ const Home = () => {
   const handleRoastGenerate = async (url: string) => {
     try {
       setIsLoading(true);
-      const response: RoastResponse =  await generateRoast(url);
+      const response: RoastResponse = await generateRoast(url);
       setRoastData(response);
     } catch (error) {
       console.error("Error generating roast:", error);
@@ -64,6 +64,14 @@ const Home = () => {
       </main>
 
       <SocialShareBar onShare={handleShare} />
+
+      {/* Disclaimer */}
+      <div className="mt-12 text-center text-gray-500 text-sm">
+        <p>
+          ⚠️ Disclaimer: This project is for fun and entertainment purposes
+          only. We do not intend to hurt anyone's feelings.{" "}
+        </p>
+      </div>
 
       <footer className="mt-12 text-center text-gray-500 text-sm">
         <p>Made with 🔥 by the GitHub Roast Generator team</p>
