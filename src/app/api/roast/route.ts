@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
+import { RoastResponse } from "@/type";
 
 const generateRoast = async (readmeContent: string): Promise<string> => {
   // Placeholder function to simulate LLM analysis
@@ -25,7 +26,13 @@ export async function POST(request: NextRequest) {
     const response = await axios.get(readmeUrl);
     const roast = await generateRoast(response.data);
 
-    return NextResponse.json({ roast }, { status: 200 });
+    const response_data: RoastResponse = {
+      username,
+      avatarUrl: `https://api.dicebear.com/7.x/avataaars/svg?seed=default`,
+      roastText: roast,
+    };
+
+    return NextResponse.json({ ...response_data }, { status: 200 });
   } catch (error) {
     console.error(error);
     return NextResponse.json(

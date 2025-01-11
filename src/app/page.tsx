@@ -9,19 +9,16 @@ import SocialShareBar from "@/components/SocialShareBar";
 
 // ** import types
 import { RoastResponse } from "@/type";
+import { generateRoast } from "@/api/gen-roast";
 
 const Home = () => {
   const [roastData, setRoastData] = React.useState<RoastResponse | null>(null);
   const [isLoading, setIsLoading] = React.useState(false);
 
-  const handleRoastGenerate = (url: string) => {
+  const handleRoastGenerate = async (url: string) => {
     try {
       setIsLoading(true);
-      const response: RoastResponse = {
-        avatarUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=default",
-        username: "GithubRoaster",
-        roastText: "Your code is so clean, it makes Marie Kondo jealous! 🧹✨",
-      };
+      const response: RoastResponse =  await generateRoast(url);
       setRoastData(response);
     } catch (error) {
       console.error("Error generating roast:", error);
