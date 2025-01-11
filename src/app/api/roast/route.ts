@@ -4,10 +4,7 @@ import { RoastResponse } from "@/type";
 
 const generateRoast = async (readmeContent: string): Promise<string> => {
   // Placeholder function to simulate LLM analysis
-  return `🔥 ${readmeContent.slice(
-    0,
-    100
-  )}... just kidding, but keep it up! 😜`;
+  return `🔥 ... just kidding, but keep it up! 😜`;
 };
 
 export async function POST(request: NextRequest) {

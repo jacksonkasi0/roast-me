@@ -17,7 +17,7 @@ export async function generateRoast(githubLink: string): Promise<RoastResponse> 
             }
         });
 
-        return response.data.roast;
+        return response.data;
     } catch (error) {
         toast.warn('Failed to generate roast');
         throw new Error('Failed to generate roast');
