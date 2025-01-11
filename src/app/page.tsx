@@ -30,6 +30,21 @@ const Home = () => {
     }
   };
 
+  const handleShare = (platform: "twitter" | "linkedin") => {
+    console.log(`Sharing to ${platform}`);
+
+    const content = roastData?.roastText;
+    // ** Implement share logic for twitter
+    if (platform === "twitter") {
+      window.open(`https://twitter.com/intent/tweet?text=${content}`);
+    } else {
+      // ** Implement share logic for linkedin
+      window.open(
+        `https://www.linkedin.com/sharing/share-offsite/?url=${content}`
+      );
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center py-12 px-4">
       <header className="mb-12 text-center">
@@ -51,7 +66,7 @@ const Home = () => {
         )}
       </main>
 
-      <SocialShareBar />
+      <SocialShareBar onShare={handleShare} />
 
       <footer className="mt-12 text-center text-gray-500 text-sm">
         <p>Made with 🔥 by the GitHub Roast Generator team</p>

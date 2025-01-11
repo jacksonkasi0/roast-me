@@ -10,12 +10,10 @@ import {
 
 interface SocialShareBarProps {
   onShare?: (platform: "twitter" | "linkedin") => void;
-  text?: string;
 }
 
 const SocialShareBar = ({
   onShare = (platform) => console.log(`Sharing to ${platform}`),
-  text = "Check out this hilarious GitHub roast!",
 }: SocialShareBarProps) => {
   return (
     <div className="w-full bg-white border-t border-gray-200 p-4 flex justify-end items-center space-x-2">
