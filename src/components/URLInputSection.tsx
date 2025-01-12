@@ -41,7 +41,7 @@ const URLInputSection: React.FC<URLInputSectionProps> = ({
         <div className="flex w-full items-center space-x-2">
           <Input
             type="url"
-            placeholder="https://github.com/username/repo#readme"
+            placeholder="https://github.com/username"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             className="flex-1"
