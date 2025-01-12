@@ -1,31 +1,31 @@
 import React from "react";
 import { Github } from "lucide-react";
-import { Input } from "./ui/input";
-import { Button } from "./ui/button";
-import { Card } from "./ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 interface URLInputSectionProps {
   onSubmit?: (url: string) => void;
   isLoading?: boolean;
 }
 
-const URLInputSection = ({
-  onSubmit = (url) => console.log("Submitted URL:", url),
-  isLoading = false,
-}: URLInputSectionProps) => {
+const URLInputSection: React.FC<URLInputSectionProps> = ({
+  onSubmit,
+  isLoading,
+}) => {
   const [url, setUrl] = React.useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(url);
+    if (onSubmit) onSubmit(url);
   };
 
   return (
-    <Card className="w-full max-w-[600px] p-6 bg-white shadow-lg">
+    <Card className="w-full max-w-[600px] p-6 bg-white dark:bg-gray-800 shadow-lg">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="flex items-center space-x-2 mb-2">
-          <Github className="h-6 w-6 text-gray-600" />
-          <h2 className="text-xl font-semibold text-gray-800">
+          <Github className="h-6 w-6 text-gray-600 dark:text-gray-300" />
+          <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
             Enter GitHub README URL
           </h2>
         </div>
