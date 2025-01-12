@@ -27,7 +27,7 @@ const URLInputSection: React.FC<URLInputSectionProps> = ({
     <div className="w-full max-w-md mx-auto">
       <form
         onSubmit={handleSubmit}
-        className="p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg space-y-4"
+        className="p-6 bg-white dark:bg-gray-800 shadow-sm rounded-lg space-y-4"
       >
         {/* Header */}
         <div className="flex items-center space-x-3">

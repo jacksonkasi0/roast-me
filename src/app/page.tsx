@@ -40,38 +40,37 @@ const Home = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col items-center py-12 px-4">
-      <header className="mb-12 text-center">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col items-center py-6 px-4">
+      {/* Header */}
+      <header className="text-center mb-8">
+        <h1 className="text-3xl font-semibold text-gray-900 dark:text-white">
           GitHub Roast Generator
         </h1>
-        <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
-          Enter a GitHub README URL and let our AI roast it with style!
+        <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+          Paste a GitHub README URL and let our AI roast it with style.
         </p>
       </header>
 
-      <main className="w-full max-w-4xl space-y-8">
+      {/* Main Content */}
+      <main className="w-full max-w-3xl space-y-4">
         {/* Input Section */}
         <URLInputSection onSubmit={handleRoastGenerate} isLoading={isLoading} />
 
         {/* Roast Card */}
         {roastData && (
-          <div className="transition-all duration-300 ease-in-out">
-            <RoastCard {...roastData} onShare={handleShare} />
-          </div>
+          <RoastCard {...roastData} onShare={handleShare} />
         )}
       </main>
 
-      {/* Disclaimer */}
-      <div className="mt-12 text-center text-gray-500 dark:text-gray-400 text-sm">
+      {/* Footer */}
+      <footer className="mt-8 text-center text-gray-500 dark:text-gray-400 text-xs">
         <p>
-          ⚠️ Disclaimer: This project is for fun and entertainment purposes
-          only. We do not intend to hurt anyone's feelings.
+          ⚠️ This project is for fun and entertainment purposes only. No harm
+          intended.
         </p>
-      </div>
-
-      <footer className="mt-12 text-center text-gray-500 dark:text-gray-400 text-sm">
-        <p>Made with 🔥 by the GitHub Roast Generator team</p>
+        <p className="mt-1">
+          Made with 🔥 GitHub copilot by Jackson Kasi.
+        </p>
       </footer>
     </div>
   );
