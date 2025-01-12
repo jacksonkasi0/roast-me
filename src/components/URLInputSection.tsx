@@ -33,7 +33,7 @@ const URLInputSection: React.FC<URLInputSectionProps> = ({
         <div className="flex items-center space-x-3">
           <Github className="h-6 w-6 text-blue-600 dark:text-blue-400" />
           <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
-            Enter GitHub Profile URL
+            Enter GitHub Profile or Repository URL
           </h2>
         </div>
 
