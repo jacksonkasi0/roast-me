@@ -1,8 +1,11 @@
 import React from "react";
+
+// ** Import icons
 import { Github } from "lucide-react";
+
+// ** Import components
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 
 interface URLInputSectionProps {
   onSubmit?: (url: string) => void;
@@ -21,16 +24,21 @@ const URLInputSection: React.FC<URLInputSectionProps> = ({
   };
 
   return (
-    <Card className="w-full max-w-[600px] p-6 bg-white dark:bg-gray-800 shadow-lg">
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex items-center space-x-2 mb-2">
-          <Github className="h-6 w-6 text-gray-600 dark:text-gray-300" />
-          <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+    <div className="w-full max-w-md mx-auto">
+      <form
+        onSubmit={handleSubmit}
+        className="p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg space-y-4"
+      >
+        {/* Header */}
+        <div className="flex items-center space-x-3">
+          <Github className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+          <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
             Enter GitHub README URL
           </h2>
         </div>
 
-        <div className="flex space-x-2">
+        {/* Input and Button */}
+        <div className="flex w-full items-center space-x-2">
           <Input
             type="url"
             placeholder="https://github.com/username/repo#readme"
@@ -44,11 +52,15 @@ const URLInputSection: React.FC<URLInputSectionProps> = ({
             disabled={isLoading}
             className="bg-blue-600 hover:bg-blue-700 text-white"
           >
-            {isLoading ? "Loading..." : "Roast Me!"}
+            {isLoading ? (
+              <span className="loader w-4 h-4 border-2 border-t-2 border-white rounded-full animate-spin"></span>
+            ) : (
+              "Roast Me!"
+            )}
           </Button>
         </div>
       </form>
-    </Card>
+    </div>
   );
 };
 
