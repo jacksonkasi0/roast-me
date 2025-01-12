@@ -33,19 +33,11 @@ export async function POST(request: NextRequest) {
 
     // Extract username and possibly repo name
     const username = parts[0];
-    const repoName = parts.length > 1 ? parts[1] : null;
+    // If repoName is not provided, assume it's the username (for profile README)
+    const repoName = parts.length > 1 ? parts[1] : username;
 
     // Determine the URL to fetch the README
-    let readmeUrl: string;
-    if (repoName) {
-      readmeUrl = `https://raw.githubusercontent.com/${username}/${repoName}/master/README.md`;
-    } else {
-      // If it's just a profile URL, generate a placeholder roast
-      return NextResponse.json(
-        { roast: "GitHub profile links do not contain README.md files." },
-        { status: 400 }
-      );
-    }
+    const readmeUrl = `https://raw.githubusercontent.com/${username}/${repoName}/master/README.md`;
 
     // Fetch the README.md content
     const readmeResponse = await axios.get(readmeUrl);
