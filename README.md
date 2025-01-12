@@ -56,7 +56,7 @@ Check out the full development journey in my YouTube video, where I recorded the
 
 ## 🌐 Live Demo  
 Experience the fun firsthand by trying out the **"Roast Me"** app:
-![Roast Me](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zyw18niyu7e4md69p8lc.png)
+![Roast Me](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/w7c2q82ef0w0p3qxvr1k.png)
 
 - **Live Demo:** [roast-u.vercel.app](https://roast-u.vercel.app/)  
   - Enter any GitHub profile URL.
